@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+	<b><%= @announcement.title %></b>
+</p>
+
+<p>
+  By:<%= @announcement.admin.username %>
+</p>
+
+<p>
+  <%= @announcement.body %>
+</p>
+
+<% if current_user %>
+	<%= link_to 'Edit', edit_announcement_path(@announcements) %> |
+<% end %>
+<%= link_to 'Back', :back %>

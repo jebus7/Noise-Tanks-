@@ -1,0 +1,14 @@
+<% @announcements.each do |announcement| %>
+<p>
+	<b><%= link_to announcement.title, announcement %></b>
+</p>
+
+<p>
+  By:<%= announcement.admin.username %>
+</p>
+
+<p>
+  <%= announcement.body %>
+</p>
+<% end %>
+<%= link_to "Past Announcements", announcements_path %>

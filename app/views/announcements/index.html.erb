@@ -1,0 +1,18 @@
+<h1>Past Announcements</h1>
+
+<% @announcements.each do |announcement| %>
+<table>
+		<p><b><%= link_to announcement.title, announcement %></b></p>
+    <p>By:<%= announcement.author %></p>
+    <p><%= announcement.body %></p>
+  <tr>
+    <td><%= link_to 'Show', announcement %></td>
+    <td><%= link_to 'Edit', edit_announcement_path(announcement) %></td>
+    <td><%= link_to 'Destroy', announcement, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

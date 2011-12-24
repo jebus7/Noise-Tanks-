@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Noisetanks</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class = nav align = center>
+<h1><%= link_to 'Noise Tanks!', root_path %></h1>
+<!-- Banner will go here -->
+<table>
+	<tr>
+		<td>Music</td>
+		<td>Movies</td>
+		<td>Games</td>
+		<td>Blog</td>
+		<% if current_user %>
+    <td><%= link_to current_user.username, admins_dashboard_path %></td>
+    <td><%= link_to "Log out", log_out_path %></td>
+  <% end %>
+	</tr>
+</table>
+</div>
+
+
+<div class = body align = center>
+<!-- body stuff goes here -->
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+<%= yield %>
+</div>
+</body>
+</html>
